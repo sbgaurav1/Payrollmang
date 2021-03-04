@@ -1,0 +1,283 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Welcome To Employee Salary Count</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col">Sr NO</th>
+                    <th>Name</th>
+                    <th>Birthdate</th>
+                    <th>TIN</th>
+                    <th>Employee Type</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="1">
+                    <th scope="row">1</th>
+                    <td class="row-data">Jhon Methew</td>
+                    <td class="row-data">03/03/1980</td>
+                    <td class="row-data">TIN1233</td>
+                    <td class="row-data">Regular</td>
+                    <td><input type="button" value="Click" onclick="show()" /> </td>
+                </tr>
+                <tr id="2">
+                    <th scope="row">2</th>
+                    <td class="row-data">Albert Davydov</td>
+                    <td class="row-data">03/04/1985</td>
+                    <td class="row-data">TIN1234</td>
+                    <td class="row-data">Contractual</td>
+                    <td><input type="button" value="Click" onclick="show()" /> </td>
+                </tr>
+                <tr id="3">
+                    <th scope="row">3</th>
+                    <td class="row-data">Peter Utsov</td>
+                    <td class="row-data">03/03/1995</td>
+                    <td class="row-data">TIN1235</td>
+                    <td class="row-data">Regular</td>
+                    <td><input type="button" value="Click" onclick="show()" /> </td>
+                </tr>
+                <tr id="4">
+                    <th scope="row">4</th>
+                    <td class="row-data">Gaurav Saxena</td>
+                    <td class="row-data">03/03/1990</td>
+                    <td class="row-data">TIN1236</td>
+                    <td class="row-data">Contractual</td>
+                    <td><input type="button" value="Click" onclick="show()" /> </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="col">Sr NO</th>
+                    <th>Name</th>
+                    <th>Birthdate</th>
+                    <th>TIN</th>
+                    <th>Employee Type</th>
+                    <th>Select</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12 ">
+            <nav>
+                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-regular-tab" data-toggle="tab" href="#nav-regular" role="tab" aria-controls="nav-regular" aria-selected="true">Regular Employees</a>
+                    <a class="nav-item nav-link" id="nav-contract-tab" data-toggle="tab" href="#nav-contract" role="tab" aria-controls="nav-contract" aria-selected="false">Contractual Employees</a>
+                </div>
+            </nav>
+            <div id="empRegularType">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label paddinglabel">Name</label>
+                    <div class="col-sm-4">
+                        <label id="empNameVal"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label paddinglabel">Birthdate</label>
+                    <div class="col-sm-4">
+                        <label id="dobVal"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label paddinglabel">TIN</label>
+                    <div class="col-sm-4">
+                        <label id="tinVal"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label paddinglabel">Employee Type</label>
+                    <div class="col-sm-4">
+                        <label id="empTypeVal"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                <div class="tab-pane fade show" id="nav-regular" role="tabpanel" aria-labelledby="nav-regular-tab">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label paddinglabel">Basic Salary</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control decimalNumberOnly" id="basicSalary" placeholder="Basic Salary">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label paddinglabel">Working Days</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control decimalNumberOnly" id="workingDays" placeholder="Working Days">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label paddinglabel">Absent Days</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control decimalNumberOnly" id="absentDays" placeholder="Absent Days">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label paddinglabel">Present Days</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control decimalNumberOnly" id="presentDays" placeholder="Present Days" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label paddinglabel">Total Salary</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="regularTotalSalary" placeholder="Total Salary" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label paddinglabel"></label>
+                        <div class="col-sm-4">
+                            <button type="button" id="calculateRegularTotalSalary" class="btn btn-outline-success btn-primary">Calculate Salary</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade show" id="nav-contract" role="tabpanel" aria-labelledby="nav-contract-tab">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label paddinglabel">Per Day Rate</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control decimalNumberOnly" id="perDayrate" placeholder="Per Day Rate">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label paddinglabel">Working Days</label>
+                        <div class="col-sm-4">
+                            <input type="number" class="form-control" id="workingDaysContract" placeholder="Working Days">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label paddinglabel">Total Salary</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="contracttotalSalary" placeholder="Total Salary" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label paddinglabel"></label>
+                        <div class="col-sm-4">
+                            <button type="submit" id="calculateContractTotalSalary" class="btn btn-outline-success btn-primary">Calculate Salary</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery3.2.1.js"></script>
+<script src="~/lib/jquery/dist/plugins.js"></script>
+<script>
+    function show() {
+        var rowId =
+            event.target.parentNode.parentNode.id;
+        //this gives id of tr whose button was clicked
+        var data =
+            document.getElementById(rowId).querySelectorAll(".row-data");
+        /*returns array of all elements with
+        "row-data" class within the row with given id*/
+
+        var name = data[0].innerHTML;
+        var dob = data[1].innerHTML;
+        var tin = data[2].innerHTML;
+        var employeeType = data[3].innerHTML;
+
+        $("#empNameVal").text(name);
+        $("#dobVal").text(dob);
+        $("#tinVal").text(tin);
+        $("#empTypeVal").text(employeeType);
+
+        if (employeeType == "Regular") {
+            $("#nav-contract").removeClass("active");
+            $("#nav-regular").addClass("active");
+        }
+        else if (employeeType == "Contractual") {
+            $("#nav-regular").removeClass("active");
+            $("#nav-contract").addClass("active");
+        }
+
+
+    }
+
+    $(document).ready(function () {
+        $('#example').DataTable();
+
+        $('.decimalNumberOnly').keypress(function (event) {
+            var $this = $(this);
+            if ((event.which != 46 || $this.val().indexOf('.') != -1) &&
+                ((event.which < 48 || event.which > 57) &&
+                    (event.which != 0 && event.which != 8))) {
+                event.preventDefault();
+            }
+
+            var text = $(this).val();
+            if ((event.which == 46) && (text.indexOf('.') == -1)) {
+                setTimeout(function () {
+                    if ($this.val().substring($this.val().indexOf('.')).length > 3) {
+                        $this.val($this.val().substring(0, $this.val().indexOf('.') + 3));
+                    }
+                }, 1);
+            }
+
+            if ((text.indexOf('.') != -1) &&
+                (text.substring(text.indexOf('.')).length > 2) &&
+                (event.which != 0 && event.which != 8) &&
+                ($(this)[0].selectionStart >= text.length - 2)) {
+                event.preventDefault();
+            }
+        });
+
+        $('.numberOnly').bind('keyup paste', function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
+        //calculate present days
+
+        $('#workingDays').keyup(function () {
+            var workingDays = $('#workingDays').val();
+            var absentDays = $('#absentDays').val();
+            if (parseFloat(absentDays) > parseFloat(workingDays)) {
+                alert("Absent days can not be greater than working days");
+            }
+            else if (parseFloat(workingDays) > parseFloat(absentDays) || parseFloat(workingDays) == parseFloat(absentDays)) {
+                var presentDays = parseFloat(workingDays) - parseFloat(absentDays);
+                $('#presentDays').val(parseFloat(presentDays).toFixed(2));
+            }
+        })
+
+        $('#absentDays').keyup(function () {
+            var workingDays = $('#workingDays').val();
+            var absentDays = $('#absentDays').val();
+            if (parseFloat(absentDays) > parseFloat(workingDays)) {
+                alert("Absent days can not be greater than working days");
+            }
+            else if (parseFloat(workingDays) > parseFloat(absentDays) || parseFloat(workingDays) == parseFloat(absentDays)) {
+                var presentDays = parseFloat(workingDays) - parseFloat(absentDays);
+                $('#presentDays').val(parseFloat(presentDays).toFixed(2));
+            }
+        })
+
+        // calculate regular  slary on button click
+        $("#calculateRegularTotalSalary").click(function () {
+            var basicSalary = $('#basicSalary').val();
+            var presentDays = $('#presentDays').val();
+            var tax = "12";
+            var totalSalary = (parseFloat(basicSalary) - (parseFloat(basicSalary) / parseInt(presentDays)) - (parseFloat(basicSalary) * (parseInt(tax) / 100.0)))
+            $('#regularTotalSalary').val(parseFloat(totalSalary).toFixed(2));
+        });
+
+
+        // calculate contract  slary on button click
+        $("#calculateContractTotalSalary").click(function () {
+            var perDayRate = $('#perDayrate').val();
+            var workingDays = $('#workingDaysContract').val();
+            var totalSalary = (parseFloat(perDayRate) * (parseFloat(workingDays)));
+            $('#contracttotalSalary').val(parseFloat(totalSalary).toFixed(2));
+        });
+    })
+</script>
